@@ -1,0 +1,23 @@
+{
+  "name": "git-batch",
+  "version": "1.0.0",
+  "description": "Git常用命令批量操作工具",
+  "author": "cafehaus",
+  "private": true,
+  "keywords": [
+    "Git",
+    "Git批处理",
+    "Git工具"
+  ],
+  "scripts": {
+    "clone": "node src/clone",
+    "pull": "node src/pull",
+    "cb": "node src/create",
+    "delete": "node src/delete",
+    "merge": "node src/merge",
+    "commit": "node src/commit",
+    "push": "node src/push",
+    "del-dir": "node src/del-dir",
+    "test": "node src/test"
+  }
+}
