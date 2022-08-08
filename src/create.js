@@ -26,6 +26,8 @@ util.batchExeCmd(async (projName, projPath) => {
     return
   }
 
-  let res = await util.exeCmd(`cd ${projPath} && git checkout master && git pull origin master && git branch ${config.branch} && git checkout ${config.branch} && git push -u origin ${config.branch}`, 1)
+  // 最后的命令 yarn(npm install) 可选，这里加上是因为如果只是修改不运行
+  // 如果有新的依赖没安装，并且项目代码加了第三方push代码检查，后面还想批量 yarn merge 时就会报错不能推送
+  let res = await util.exeCmd(`cd ${projPath} && git checkout master && git pull origin master && git branch ${config.branch} && git checkout ${config.branch} && git push -u origin ${config.branch} && yarn`, 1)
   console.log(`${projName}：新建${res === 'fail' ? '失败' : '成功'}-${config.branch}`)
 }, config)
